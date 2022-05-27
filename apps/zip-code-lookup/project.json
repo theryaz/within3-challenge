@@ -1,0 +1,52 @@
+{
+  "root": "apps/zip-code-lookup",
+  "sourceRoot": "apps/zip-code-lookup/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/zip-code-lookup",
+        "main": "apps/zip-code-lookup/src/main.ts",
+        "tsConfig": "apps/zip-code-lookup/tsconfig.app.json",
+        "assets": ["apps/zip-code-lookup/src/assets"]
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/zip-code-lookup/src/environments/environment.ts",
+              "with": "apps/zip-code-lookup/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/node:node",
+      "options": {
+        "buildTarget": "zip-code-lookup:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/zip-code-lookup/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/zip-code-lookup"],
+      "options": {
+        "jestConfig": "apps/zip-code-lookup/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,0 +1,6 @@
+{
+  "version": 2,
+  "projects": {
+    "zip-code-lookup": "apps/zip-code-lookup"
+  }
+}
