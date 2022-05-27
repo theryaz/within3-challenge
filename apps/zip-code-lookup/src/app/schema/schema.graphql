@@ -1,0 +1,9 @@
+type City{
+	ZipCode: String!
+	City: String!
+	County: String!
+}
+
+type Query {
+  city(zipcode: String!): City
+}

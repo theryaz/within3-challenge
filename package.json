@@ -9,9 +9,14 @@
   },
   "private": true,
   "dependencies": {
+    "@nestjs/apollo": "^10.0.13",
     "@nestjs/common": "^8.0.0",
     "@nestjs/core": "^8.0.0",
+    "@nestjs/graphql": "^10.0.13",
     "@nestjs/platform-express": "^8.0.0",
+    "apollo-server-express": "^3.8.1",
+    "csvtojson": "^2.0.10",
+    "graphql": "^16.5.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.0.0",
     "tslib": "^2.0.0"
@@ -36,6 +41,7 @@
     "nx": "13.10.5",
     "prettier": "^2.5.1",
     "ts-jest": "27.0.5",
+    "ts-morph": "^15.0.0",
     "typescript": "~4.6.2"
   }
 }
