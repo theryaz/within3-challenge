@@ -10,11 +10,7 @@ export class CityService{
 	async findAll(): Promise<City[]>{
 		return this.cityRepository.findAll();
 	}
-	async findOneByZipCode(zipcode: string): Promise<City>{
-		const city = this.cityRepository.findOneByZipCode(zipcode);
-		if(city === null){
-			throw new Error("No City found for zip code");
-		}
-		return city;
+	async findOneByZipCode(zipcode: string): Promise<City | null>{
+		return await this.cityRepository.findOneByZipCode(zipcode);
 	}
 }

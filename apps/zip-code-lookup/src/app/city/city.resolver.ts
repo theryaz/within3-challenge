@@ -1,3 +1,4 @@
+import { HttpException, HttpStatus } from "@nestjs/common";
 import { Args, Query, Resolver } from "@nestjs/graphql";
 import { City } from "../../graphql";
 import { CityService } from "./cityService";
@@ -9,6 +10,10 @@ export class CityResolver {
 	private Cities: City[] = Cities;
 	@Query()
 	async city(@Args('zipcode') zipcode: string) {
-		return this.cityService.findOneByZipCode(zipcode);
+		const city = await this.cityService.findOneByZipCode(zipcode);
+		if(city === null){
+			throw new HttpException("NotFound", HttpStatus.NOT_FOUND);
+		}
+		return city;
 	}
 }
